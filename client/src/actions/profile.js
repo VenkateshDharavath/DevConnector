@@ -14,7 +14,7 @@ export const getCurrentProfile = () => async (dispatch) => {
       type: PROFILE_ERROR,
       payload: {
         msg: err.response.statusText,
-        status: err.response.status,
+        status: { msg: err.response.statusText, status: err.response.status },
       },
     });
   }
