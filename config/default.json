@@ -1,0 +1,6 @@
+{
+    "mongoURI" : "mongodb+srv://mongoUser:Password123@cluster0.1nwjd.mongodb.net/merndb?retryWrites=true&w=majority",
+    "jwtSecret" : "mysecrettoken",
+    "githubClient": "283ec1c2f48ce04be072",
+    "githubSecret": "ad98517be75c951dd15596afe8a5f56951b9a558"
+}
