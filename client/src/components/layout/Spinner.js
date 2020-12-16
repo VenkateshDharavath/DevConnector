@@ -1,11 +1,14 @@
 import React, { Fragment } from 'react';
 import spinner from './spinner.gif';
 
-export default () => (
+const Spinner = () => (
   <Fragment>
     <img
       src={spinner}
-      style={{ width: '200px', margin: 'auto', display: 'block' }}
+      alt=""
+      style={{ width: '100px', margin: 'auto', display: 'block' }}
     />
   </Fragment>
 );
+
+export default Spinner;

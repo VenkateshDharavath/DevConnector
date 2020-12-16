@@ -68,8 +68,13 @@ router.post(
     if (bio) profileFields.bio = bio;
     if (status) profileFields.status = status;
     if (githubusername) profileFields.githubusername = githubusername;
-    if (skills)
-      profileFields.skills = skills.split(',').map((skill) => skill.trim());
+    if (skills) {
+      if (typeof skills === 'string') {
+        profileFields.skills = skills.split(',').map((skill) => skill.trim());
+      } else {
+        profileFields.skills = skills;
+      }
+    }
 
     // Build social object
     profileFields.social = {};
@@ -289,7 +294,7 @@ router.delete('/education/:edu_id', auth, async (req, res) => {
   }
 });
 
-// @route   DELETE api/profile/github/:username
+// @route   GET api/profile/github/:username
 // @desc    Get repos from github
 // @access  Public
 router.get('/github/:username', async (req, res) => {
@@ -304,11 +309,13 @@ router.get('/github/:username', async (req, res) => {
       headers: { 'user-agent': 'node.js' },
     };
     request(options, (error, response, body) => {
-      if (error) return res.status(404).json({ errors: error });
-
-      if (response.status !== 200) {
-        return res.status(404).json({ msg: 'No Github profile found' });
+      if (error) {
+        return res.status(404).json({ errors: error });
       }
+
+      // if (response.status !== 200) {
+      //   return res.status(404).json({ msg: 'No Github profile found' });
+      // }
 
       return res.json(JSON.parse(body));
     });

@@ -5,7 +5,6 @@ import { DateTime } from 'luxon';
 import { deleteEducation } from '../../actions/profile';
 
 const Education = ({ education, deleteEducation }) => {
-  const date = DateTime.fromISO();
   const educations = education.map((edu) => (
     <tr key={edu._id}>
       <td>{edu.school}</td>
