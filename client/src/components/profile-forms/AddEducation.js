@@ -83,7 +83,7 @@ const AddEducation = ({ addEducation, history }) => {
             onChange={(e) => onChange(e)}
           />
         </div>
-        <div className='form-group'>
+        <div className='form-group'> 
           <p>
             <input
               type='checkbox'
